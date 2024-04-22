@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart-Disease-Prediction</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="text-center mt-4 mb-5">Heart Disease Predictive Analysis</h2>
+        <form action="{{ url_for('predict')}}" method="post">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="sop">Slope of peak Exercise St Segment</label>
+                        <input id="sop" name="sop" type="number" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="resting_bp">Resting Blood Pressure</label>
+                        <input id="resting_bp" name="resting_bp" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="cpt">Type of chest pain?(1, 2, 3, or 4)</label>
+                        <input id="cpt" name="cpt" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="major_vessels">Major Blood vessels of The Heart(0, 1, 2, or 3)</label>
+                        <input id="major_vessels" name="major_vessels" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="serum_cholesterol">Serum Cholesterol</label>
+                        <input id="serum_cholesterol" name="serum_cholesterol" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="oldpeak_st_depression">Old Peak ST Depression?</label>
+                        <input id="oldpeak_st_depression" name="oldpeak_st_depression" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input id="age" name="age" type="text" class="form-control">
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="max_heart_rate">Max Heart Rate</label>
+                        <input id="max_heart_rate" name="max_heart_rate" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="thal_normal">What Is the Thal(Blood Disorder)?</label>
+                        <select name="thal_normal" id="thal_normal" class="form-control">
+                            <option value="normal">Normal</option>
+                            <option value="reversible_defect">Reversible Defect</option>
+                            <option value="fixed_defect">Fixed Defect</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="fasting_blood_sugar">Fasting Blood Sugar (0=False or 1=True)</label>
+                        <select name="fasting_blood_sugar" id="fasting_blood_sugar" class="form-control">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sex">Sex (0=Female or 1=Male)</label>
+                        <select name="sex" id="sex" class="form-control">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exercise_induced_angina">Exercise Induced Angina (0=No or 1=Yes)</label>
+                        <select name="exercise_induced_angina" id="exercise_induced_angina" class="form-control">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ekg_result">Resting EKG Result</label>
+                        <select name="ekg_result" id="ekg_result" class="form-control">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary">Predict The Patient</button>
+            </div>
+        </form>
+        <div class="mt-4">{{pred}}</div>
+    </div>
+</body>
+
+</html>
