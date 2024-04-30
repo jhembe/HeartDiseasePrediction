@@ -9,7 +9,7 @@ app = Flask(__name__) # Creating app
 model = pickle.load(open("Logistic_regression_model.pkl","rb")) # open model in read mode
 @app.route('/',methods=['GET']) # If someone hitting the webside that time method will be get
 def Home():
-    return render_template('indexxx.html') #Pushing the UI or html code
+    return render_template('index.html') #Pushing the UI or html code
 
 # Start Preprocessing
 standard_to = StandardScaler()
@@ -45,12 +45,12 @@ def predict():
         output = round(prediction[0],2) # Predict the model with condition
 
         if output == 0: # Condition for output
-            return render_template('indexxx.html',pred="The Patient Has No heart Disease") # Connect ot html page and app
+            return render_template('index.html',pred="The Patient Has Not heart Disease") # Connect ot html page and app
         else:
             pred = "The Patient has Heart Disease ".format(output)
-            return render_template('indexxx.html', pred=pred)
+            return render_template('index.html', pred=pred)
     else:
-        return render_template('indexxx.html')
+        return render_template('index.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
